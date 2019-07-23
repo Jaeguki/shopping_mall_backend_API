@@ -6,11 +6,11 @@ from category.models import Category
 
 class Item(models.Model):
     no = models.BigAutoField(primary_key=True)
-    category_no = models.ForeignKey(Category, models.DO_NOTHING, db_column='category_no')
+    category_no = models.ForeignKey(Category, related_name='items', on_delete=models.DO_NOTHING, db_column='category_no')
     name = models.CharField(max_length=100)
     image = models.CharField(max_length=100)
     desc = models.CharField(max_length=1000)
-    hit_count = models.PositiveIntegerField()
+    hit_count = models.PositiveIntegerField(default=0)
     price = models.PositiveIntegerField()
     display_yn = models.BooleanField(default=False)
     total_sell_count = models.PositiveSmallIntegerField()
@@ -27,7 +27,7 @@ class Item(models.Model):
 
 class ItemOption(models.Model):
     no = models.BigAutoField(primary_key=True)
-    item_no = models.ForeignKey(Item, models.DO_NOTHING, db_column='item_no')
+    item_no = models.ForeignKey(Item, related_name='options', on_delete=models.DO_NOTHING, db_column='item_no')
     detail = models.CharField(max_length=1000)
     desc = models.CharField(max_length=1000)
     sell_count = models.PositiveSmallIntegerField()
@@ -44,7 +44,7 @@ class ItemOption(models.Model):
 
 class ItemOptionImage(models.Model):
     no = models.BigAutoField(primary_key=True)
-    item_option_no = models.ForeignKey(ItemOption, models.DO_NOTHING, db_column='item_option_no')
+    item_option_no = models.ForeignKey(ItemOption, related_name='images', on_delete=models.DO_NOTHING, db_column='item_option_no')
     detail = models.CharField(max_length=1000)
     register_datetime = models.DateTimeField(auto_now_add=True)
     update_datetime = models.DateTimeField(auto_now=True)
@@ -58,7 +58,7 @@ class ItemOptionImage(models.Model):
 
 class ItemOptionSize(models.Model):
     no = models.BigAutoField(primary_key=True)
-    item_option_no = models.ForeignKey(ItemOption, models.DO_NOTHING, db_column='item_option_no')
+    item_option_no = models.ForeignKey(ItemOption, related_name='sizes', on_delete=models.DO_NOTHING, db_column='item_option_no')
     name = models.CharField(max_length=100)
 
     class Meta:

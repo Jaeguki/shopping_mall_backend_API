@@ -37,4 +37,5 @@ urlpatterns = [
     path('api/v1/members/', include('member.urls')),
     path('api/v1/malls/', include('mall.urls')),
     path('api/v1/categories/', include('category.urls')),
+    path('api/v1/items/', include('item.urls')),
 ]
