@@ -17,6 +17,6 @@ category_detail = CategoryViewSet.as_view({
 })
 urlpatterns = [
     path('', category_list),
-    path('<int:category_no>/', category_detail),
-    path('<int:category_no>/items', include('item.urls')),
+    path('<int:no>/', category_detail),
+    path('<int:no>/items', include('item.urls')),
 ]

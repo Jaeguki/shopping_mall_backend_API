@@ -6,4 +6,4 @@ from category.serializers import CategorySerializer
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    lookup_field = 'category_no'
+    lookup_field = 'no'
