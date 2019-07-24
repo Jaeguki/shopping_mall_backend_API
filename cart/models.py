@@ -7,8 +7,10 @@ from non_member.models import NonMember
 
 class Cart(models.Model):
     no = models.BigAutoField(primary_key=True)
-    member_no = models.ForeignKey(Member, models.DO_NOTHING, db_column='member_no', blank=True, null=True)
-    non_member_no = models.ForeignKey(NonMember, models.DO_NOTHING, db_column='non_member_no', blank=True, null=True)
+    member_no = models.ForeignKey(Member, related_name='carts', on_delete=models.DO_NOTHING,
+                                  db_column='member_no', blank=True, null=True)
+    non_member_no = models.ForeignKey(NonMember, related_name='carts', on_delete=models.DO_NOTHING,
+                                      db_column='non_member_no', blank=True, null=True)
     item_option_size_no = models.ForeignKey(ItemOptionSize, models.DO_NOTHING, db_column='item_option_size_no')
     item_quantity = models.PositiveSmallIntegerField()
 

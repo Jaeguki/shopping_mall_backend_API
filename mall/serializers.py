@@ -18,7 +18,6 @@ class MallSerializer(serializers.ModelSerializer):
             'desc',
             'register_datetime',
             'update_information_datetime',
-            'member_no',
             'categories',
         )
 

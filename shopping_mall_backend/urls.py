@@ -38,4 +38,7 @@ urlpatterns = [
     path('api/v1/malls/', include('mall.urls')),
     path('api/v1/categories/', include('category.urls')),
     path('api/v1/items/', include('item.urls')),
+    path('api/v1/carts/', include('cart.urls')),
+    path('api/v1/nonMembers/', include('non_member.urls')),
+
 ]

@@ -167,7 +167,6 @@ class OrderItem(models.Model):
     order_item_no = models.BigAutoField(primary_key=True)
     order_no = models.ForeignKey(Order, models.DO_NOTHING, db_column='order_no')
     item_option_size_no = models.ForeignKey(ItemOptionSize, models.DO_NOTHING, db_column='item_option_size_no')
-    item_option_no = models.BigAutoField()
     count = models.IntegerField()
     total_amount = models.IntegerField()
 

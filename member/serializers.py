@@ -1,13 +1,20 @@
 from rest_framework import serializers
 
+from cart.serializers import CartSerializer
 from mall.serializers import MallSerializer
 from . import models
 
 
 class MemberSerializer(serializers.ModelSerializer):
     malls = MallSerializer(many=True, read_only=True)
-
+    carts = CartSerializer(many=True, read_only=True)
     class Meta:
+        # 해당하는 모델
+        model = models.Member
+
+        # 직렬화시 포함시키지 않을 데이터
+        extra_kwargs = {'password': {'write_only': True}}
+
         # fields는 데이터베이스 속성을 제어합니다.
         fields = (
             'no',
@@ -33,6 +40,6 @@ class MemberSerializer(serializers.ModelSerializer):
             'denied_yn',
             'activation_yn',
             'malls',
+            'carts',
         )
-        model = models.Member
 

@@ -9,7 +9,6 @@ class ItemOptionSizeSerializer(serializers.ModelSerializer):
         # fields는 데이터베이스 속성을 제어합니다.
         fields = (
             'no',
-            'item_option_no',
             'name',
         )
 
@@ -20,7 +19,6 @@ class ItemOptionImageSerializer(serializers.ModelSerializer):
         # fields는 데이터베이스 속성을 제어합니다.
         fields = (
             'no',
-            'item_option_no',
             'detail',
             'register_datetime',
             'update_datetime',
@@ -36,7 +34,6 @@ class ItemOptionSerializer(serializers.ModelSerializer):
         # fields는 데이터베이스 속성을 제어합니다.
         fields = (
             'no',
-            'item_no',
             'detail',
             'desc',
             'sell_count',
@@ -56,7 +53,6 @@ class ItemSerializer(serializers.ModelSerializer):
         # fields는 데이터베이스 속성을 제어합니다.
         fields = (
             'no',
-            'category_no',
             'name',
             'image',
             'desc',
