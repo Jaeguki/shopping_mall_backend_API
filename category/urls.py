@@ -15,6 +15,7 @@ category_detail = CategoryViewSet.as_view({
     'patch': 'partial_update',
     'delete': 'destroy'
 })
+
 urlpatterns = [
     path('', category_list),
     path('<int:no>/', category_detail),

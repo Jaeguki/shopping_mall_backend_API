@@ -1,10 +1,12 @@
 from django.db import models
 from member.models import Member
+from non_member.models import NonMember
 
 
 class Shipping(models.Model):
     no = models.BigAutoField(primary_key=True)
     member_no = models.ForeignKey(Member, models.DO_NOTHING, db_column='member_no', blank=True, null=True)
+    non_member_no = models.ForeignKey(NonMember, models.DO_NOTHING, db_column='non_member_no', blank=True, null=True)
     name = models.CharField(max_length=100)
     recipient = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)

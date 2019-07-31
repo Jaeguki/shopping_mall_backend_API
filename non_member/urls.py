@@ -17,4 +17,5 @@ urlpatterns = [
     path('', non_member_list),
     path('<int:no>/', non_member_list),
     path('<int:no>/carts/', include('cart.urls')),
+    path('<int:no>/shippings/', include('shipping.urls')),
 ]

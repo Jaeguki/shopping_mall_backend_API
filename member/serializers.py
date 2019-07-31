@@ -2,12 +2,17 @@ from rest_framework import serializers
 
 from cart.serializers import CartSerializer
 from mall.serializers import MallSerializer
+from order.serializers import OrderSerializer
+from shipping.serializers import ShippingSerializer
 from . import models
 
 
 class MemberSerializer(serializers.ModelSerializer):
     malls = MallSerializer(many=True, read_only=True)
     carts = CartSerializer(many=True, read_only=True)
+    orders = OrderSerializer(many=True, read_only=True)
+    shippings = ShippingSerializer(many=True, read_only=True)
+
     class Meta:
         # 해당하는 모델
         model = models.Member
@@ -41,5 +46,7 @@ class MemberSerializer(serializers.ModelSerializer):
             'activation_yn',
             'malls',
             'carts',
+            'orders',
+            'shippings',
         )
 

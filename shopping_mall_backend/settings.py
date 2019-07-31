@@ -45,10 +45,11 @@ INSTALLED_APPS = [
     'mall',
     'category',
     'item',
-    'order',
-    'shipping',
     'non_member',
+    'shipping',
+    'order',
     'cart',
+    'order_item',
 
 ]
 

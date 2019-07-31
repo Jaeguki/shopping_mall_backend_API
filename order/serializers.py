@@ -5,13 +5,14 @@ from . import models
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    order_item = OrderItemSerializer(many=True, read_only=True)
+    order_items = OrderItemSerializer(many=True, read_only=True)
 
     class Meta:
         # fields는 데이터베이스 속성을 제어합니다.
         fields = (
             'no',
             'member_no',
+            'non_member_no',
             'shipping_no',
             'status',
             'register_datetime',
@@ -20,7 +21,7 @@ class OrderSerializer(serializers.ModelSerializer):
             'message',
             'total_quantity',
             'payment_type',
-            'orders',
+            'order_items',
         )
-        model = models.Member
+        model = models.Order
 
