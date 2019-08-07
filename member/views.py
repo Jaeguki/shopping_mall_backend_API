@@ -8,3 +8,9 @@ class MemberViewSet(viewsets.ModelViewSet):
     serializer_class = MemberSerializer
     lookup_field = 'no'
 
+
+def check_id(request):
+    if request.method == "POST":
+        return None
+
+
