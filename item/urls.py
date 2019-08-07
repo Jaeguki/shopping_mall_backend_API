@@ -77,6 +77,6 @@ item_option_patterns = [
 urlpatterns = [
     path('', item_list),
     path('<int:no>/', item_detail),
-    path('<int:no>/options', include(item_option_patterns)),
+    path('<int:no>/options/', include(item_option_patterns)),
 ]
 

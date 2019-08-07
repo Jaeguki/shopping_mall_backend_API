@@ -30,8 +30,8 @@ class ItemOption(models.Model):
     item_no = models.ForeignKey(Item, related_name='options', on_delete=models.DO_NOTHING, db_column='item_no')
     detail = models.CharField(max_length=1000)
     desc = models.CharField(max_length=1000)
-    sell_count = models.PositiveSmallIntegerField()
-    cart_count = models.PositiveSmallIntegerField()
+    sell_count = models.PositiveSmallIntegerField(default=0)
+    cart_count = models.PositiveSmallIntegerField(default=0)
     register_datetime = models.DateTimeField(auto_now_add=True)
     update_information_datetime = models.DateTimeField(auto_now=True)
 
@@ -45,7 +45,7 @@ class ItemOption(models.Model):
 class ItemOptionImage(models.Model):
     no = models.BigAutoField(primary_key=True)
     item_option_no = models.ForeignKey(ItemOption, related_name='images', on_delete=models.DO_NOTHING, db_column='item_option_no')
-    detail = models.URLField(max_length=200)
+    detail = models.URLField(max_length=200, default='')
     register_datetime = models.DateTimeField(auto_now_add=True)
     update_datetime = models.DateTimeField(auto_now=True)
 
