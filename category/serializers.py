@@ -11,6 +11,7 @@ class CategorySerializer(serializers.ModelSerializer):
         # fields는 데이터베이스 속성을 제어합니다.
         fields =(
             'no',
+            'mall_no',
             'name',
             'desc',
             'register_datetime',

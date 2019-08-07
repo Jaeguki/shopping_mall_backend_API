@@ -8,7 +8,7 @@ class Item(models.Model):
     no = models.BigAutoField(primary_key=True)
     category_no = models.ForeignKey(Category, related_name='items', on_delete=models.DO_NOTHING, db_column='category_no')
     name = models.CharField(max_length=100)
-    image = models.CharField(max_length=100)
+    image = models.URLField(max_length=200)
     desc = models.CharField(max_length=1000)
     hit_count = models.PositiveIntegerField(default=0)
     price = models.PositiveIntegerField()
@@ -45,7 +45,7 @@ class ItemOption(models.Model):
 class ItemOptionImage(models.Model):
     no = models.BigAutoField(primary_key=True)
     item_option_no = models.ForeignKey(ItemOption, related_name='images', on_delete=models.DO_NOTHING, db_column='item_option_no')
-    detail = models.CharField(max_length=1000)
+    detail = models.URLField(max_length=200)
     register_datetime = models.DateTimeField(auto_now_add=True)
     update_datetime = models.DateTimeField(auto_now=True)
 

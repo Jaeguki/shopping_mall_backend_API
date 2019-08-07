@@ -53,6 +53,7 @@ class ItemSerializer(serializers.ModelSerializer):
         # fields는 데이터베이스 속성을 제어합니다.
         fields = (
             'no',
+            'category_no',
             'name',
             'image',
             'desc',
