@@ -1,6 +1,7 @@
 from django.urls import path, include
 
 from .views import MemberViewSet
+from .api import views as api_views
 
 # noinspection PyCallByClass,PyTypeChecker
 member_list = MemberViewSet.as_view({
@@ -21,5 +22,5 @@ urlpatterns = [
     path('<int:no>/malls/', include('mall.urls')),
     path('<int:no>/carts/', include('cart.urls')),
     path('<int:no>/shippings/', include('shipping.urls')),
-
+    path('login', api_views.login),
 ]
