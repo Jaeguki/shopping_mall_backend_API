@@ -5,7 +5,7 @@ from django.db import models
 
 
 class Member(models.Model):
-    no = models.IntegerField(primary_key=True)
+    no = models.AutoField(auto_created=True, primary_key=True, serialize=False)
     id = models.CharField(max_length=100)
     email = models.CharField(max_length=255)
     password = models.CharField(max_length=255)

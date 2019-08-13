@@ -23,4 +23,5 @@ urlpatterns = [
     path('<int:no>/carts/', include('cart.urls')),
     path('<int:no>/shippings/', include('shipping.urls')),
     path('login', api_views.login),
+    path('checkId', api_views.check_id),
 ]

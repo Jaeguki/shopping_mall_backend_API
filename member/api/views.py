@@ -14,10 +14,10 @@ def login(request):
         return JsonResponse({'data': model_to_dict(results[0]), 'result': 'success'})
 
 
-@api_view(['POST'])
+@api_view(['GET'])
 def check_id(request):
     try:
-        member = Member.objects.get(email=request.GET['id'])
+        member = Member.objects.get(id=request.GET['id'])
     except Exception as e:
         member = None
 

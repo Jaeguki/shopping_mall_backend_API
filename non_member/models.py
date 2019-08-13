@@ -4,7 +4,7 @@ from django.db import models
 
 
 class NonMember(models.Model):
-    no = models.IntegerField(primary_key=True)
+    no = models.AutoField(auto_created=True, primary_key=True, serialize=False)
     name = models.CharField(max_length=100)
     phone = models.CharField(max_length=100)
     password = models.CharField(max_length=100)
